@@ -59,6 +59,13 @@ namespace Assignment
 
             #endregion
 
+            #region Q6
+            //int[] Arr = { 1, 3, 2, 3, 1 };
+            //bool Flag = Helper.PalindromeCheck(Arr);
+            //Console.WriteLine(Flag);
+            #endregion
+
+
         }
     }
 
@@ -153,6 +160,32 @@ namespace Assignment
             {
                 Console.WriteLine($"Num for {Queires[i]} = {Qs[i]}");
             }
+        }
+
+        #endregion
+
+        #region Q6 Given a number N and an array of N numbers. Determine if it's palindrome or not.
+
+        public static bool PalindromeCheck(int[] Arr)
+        {
+            if (Arr != null)
+            {
+                bool flag = false;
+                int Count = Arr.Length / 2;
+                for (int i = 0; i < Count; i++)
+                {
+                    if (Arr[i] == Arr[Arr.Length - 1 - i])
+                    {
+                        flag = true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                return flag;
+            }
+            return false;
         }
 
         #endregion
