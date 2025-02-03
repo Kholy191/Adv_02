@@ -27,6 +27,20 @@ namespace Assignment
 
             #endregion
 
+            #region Q3
+
+            //FixedSizeList<int> List = new FixedSizeList<int>(5);
+            //List.Add(1);
+            //List.Add(2);
+            //List.Add(3);
+            //List.Add(4);
+            //List.Add(5);
+
+            //Console.WriteLine(List.GetMethod(0));
+            //Console.WriteLine(List.GetMethod(1));
+
+            #endregion
+
         }
     }
 
@@ -66,8 +80,47 @@ namespace Assignment
 
         #endregion
 
-
     }
 
+    #region Q3 implement a custom list called FixedSizeList<T> with a predetermined capacity. This list should not allow more elements than its capacity and should provide clear messages if one tries to exceed it or access invalid indices.
+    public class FixedSizeList<T>
+    {
+        T[]? ListArr;
+        int Count;
+        int Capacity;
+        public FixedSizeList(int capacity)
+        {
+            Capacity = capacity;
+            ListArr = new T[Capacity];
+        }
+
+        public void Add(T item)
+        {
+            if (Count == Capacity)
+            {
+                throw new ArgumentException("the list is already full.");
+            }
+            else
+            {
+                if (item != null)
+                {
+                    ListArr![Count] = item;
+                    Count++;
+                }
+            }
+        }
+
+        public T GetMethod(int index)
+        {
+            
+            if (index > (Count-1) || index < 0)
+            {
+                throw new ArgumentException("Invalid index or List is empty");
+            }
+            return ListArr![index]; ;
+        }
+    }
+
+    #endregion
 
 }
