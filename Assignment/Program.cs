@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Specialized;
 
 namespace Assignment
 {
@@ -49,6 +50,15 @@ namespace Assignment
 
             #endregion
 
+            #region Q5
+
+            //int[] Arr = { 1, 5, 3, 7 };
+            //int[] Q = { 1, 5 };
+
+            //Helper.QueriesToX(Arr, Q);
+
+            #endregion
+
         }
     }
 
@@ -90,7 +100,7 @@ namespace Assignment
 
         #region Q4 Given a string, find the first non-repeated character in it and return its index. If there is no such character, return -1. Hint you can use dictionary
 
-        public static int NonRepeatedChar(string str) 
+        public static int NonRepeatedChar(string str)
         {
             int index = 0;
             bool Repeated = false;
@@ -100,9 +110,9 @@ namespace Assignment
                 for (int j = 0; j < str.Length; j++)
                 {
                     if (i == j)
-                    {  
-                        continue; 
-                    } 
+                    {
+                        continue;
+                    }
                     if (str[i] == str[j])
                     {
                         Repeated = true;
@@ -116,7 +126,33 @@ namespace Assignment
                 }
             }
             return -1;
-            
+
+        }
+
+        #endregion
+
+        #region Q5 Given an array  consists of  numbers with size N and number of queries, in each query you will be given an integer X, and you should print how many numbers in array that is greater than  X.
+
+        public static void QueriesToX(int[] Arr, int[] Queires)
+        {
+            int[] Qs = new int[Queires.Length];
+
+            for (int i = 0; i < Qs.Length; i++)
+            {
+                int count = 0;
+                for (int j = 0; j < Arr.Length; j++)
+                {
+                    if (Arr[j] > Queires[i])
+                    {
+                        count++;
+                    }
+                }
+                Qs[i] = count;
+            }
+            for (int i = 0; i < Qs.Length; i++)
+            {
+                Console.WriteLine($"Num for {Queires[i]} = {Qs[i]}");
+            }
         }
 
         #endregion
@@ -153,8 +189,8 @@ namespace Assignment
 
         public T GetMethod(int index)
         {
-            
-            if (index > (Count-1) || index < 0)
+
+            if (index > (Count - 1) || index < 0)
             {
                 throw new ArgumentException("Invalid index or List is empty");
             }
