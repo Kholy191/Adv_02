@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Specialized;
+using System.Numerics;
 
 namespace Assignment
 {
@@ -65,7 +66,16 @@ namespace Assignment
             //Console.WriteLine(Flag);
             #endregion
 
+            #region Q7 
 
+            //int[] Arr = { 1, 4, 3, 4, 5, 6, 4, 4 };
+            //Helper.RemoveDuplicate(ref Arr);
+            //for (int i = 0; i < Arr.Length; i++)
+            //{
+            //    Console.WriteLine(Arr[i]);
+            //}
+
+            #endregion
         }
     }
 
@@ -190,6 +200,42 @@ namespace Assignment
 
         #endregion
 
+        #region Q7 Given an array, implement a function to remove duplicate elements from an array.
+
+        public static void RemoveDuplicate(ref int[] Arr)
+        {
+            if (Arr != null)
+            {
+                int count = 0;
+                int Size = 0;
+                int[] NotDiplucatedArr = new int[Arr.Length];
+                for (int i = 0; i < Arr.Length; i++)
+                {
+                    bool flag = false;
+                    for (int j = 0; j < Arr.Length; j++)
+                    {
+                        if (i != j)
+                        {
+                            if (Arr[i] == Arr[j])
+                            {
+                                flag = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (!flag)
+                    {
+                        NotDiplucatedArr[count] = Arr[i];
+                        count++;
+                        Size++;
+                    }
+                }
+                Array.Resize(ref NotDiplucatedArr, Size);
+                Arr = NotDiplucatedArr;
+            }
+        }
+
+        #endregion
     }
 
     #region Q3 implement a custom list called FixedSizeList<T> with a predetermined capacity. This list should not allow more elements than its capacity and should provide clear messages if one tries to exceed it or access invalid indices.
