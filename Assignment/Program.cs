@@ -16,6 +16,16 @@ namespace Assignment
 
             #endregion
 
+            #region Q2
+
+            //List<int> ints = new List<int>() { 4, 5, 1, 3, 6, 8, 22 };
+
+            //List<int> EvenArr = new List<int>(Helper.EvenList(ints));
+
+            //for (int i = 0; i < EvenArr.Count; i++)
+            //    Console.WriteLine(EvenArr[i]);
+
+            #endregion
 
         }
     }
@@ -38,6 +48,20 @@ namespace Assignment
 
                 }
             }
+        }
+
+        #endregion
+
+        #region Q2 You are given a list of integers. Your task is to find and return a new list containing only the even numbers from the given list.
+
+        public static List<int> EvenList(List<int> OrginalList)
+        {
+            List<int> EvenArr = new List<int>(OrginalList.Count);
+            for (int i = 0; i < OrginalList.Count; i++)
+            {
+                if ((OrginalList[i] % 2) == 0) { EvenArr.Add(OrginalList[i]); }
+            }
+            return EvenArr;
         }
 
         #endregion
