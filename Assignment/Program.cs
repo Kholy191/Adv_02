@@ -76,6 +76,17 @@ namespace Assignment
             //}
 
             #endregion
+
+            #region Q8
+
+            //ArrayList Arr = new(10) { 1, 7, 3, 5, 5, 6, 1, 4,2 };
+            //Helper.RemoveOdd(ref Arr);
+            //for (int i = 0; i < Arr.Count; i++)
+            //{
+            //    Console.WriteLine(Arr[i]);
+            //}
+
+            #endregion
         }
     }
 
@@ -232,6 +243,27 @@ namespace Assignment
                 }
                 Array.Resize(ref NotDiplucatedArr, Size);
                 Arr = NotDiplucatedArr;
+            }
+        }
+
+        #endregion
+
+        #region Q8 Given an array list , implement a function to remove all odd numbers from it.
+
+        public static void RemoveOdd(ref ArrayList Arr)
+        {
+            if (Arr != null)
+            {
+                ArrayList EvenList = new ArrayList(Arr.Count);
+
+                for (int i = 0; i < Arr.Count; i++)
+                {
+                    if (Arr[i] is not null)
+                    {
+                        if (((int)Arr[i]! % 2) == 0) { EvenList.Add(Arr[i]); }
+                    }
+                }
+                Arr = EvenList;
             }
         }
 
