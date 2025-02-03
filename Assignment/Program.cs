@@ -41,6 +41,14 @@ namespace Assignment
 
             #endregion
 
+            #region Q4
+
+            //string str = "AAAAO";
+            //int Index = Helper.NonRepeatedChar(str);
+            //Console.WriteLine(Index);
+
+            #endregion
+
         }
     }
 
@@ -76,6 +84,39 @@ namespace Assignment
                 if ((OrginalList[i] % 2) == 0) { EvenArr.Add(OrginalList[i]); }
             }
             return EvenArr;
+        }
+
+        #endregion
+
+        #region Q4 Given a string, find the first non-repeated character in it and return its index. If there is no such character, return -1. Hint you can use dictionary
+
+        public static int NonRepeatedChar(string str) 
+        {
+            int index = 0;
+            bool Repeated = false;
+            for (int i = 0; i < str.Length; i++)
+            {
+                Repeated = false;
+                for (int j = 0; j < str.Length; j++)
+                {
+                    if (i == j)
+                    {  
+                        continue; 
+                    } 
+                    if (str[i] == str[j])
+                    {
+                        Repeated = true;
+                        break;
+                    }
+                    index = i;
+                }
+                if (!Repeated)
+                {
+                    return index;
+                }
+            }
+            return -1;
+            
         }
 
         #endregion
